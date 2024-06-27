@@ -1,0 +1,44 @@
+<!-- /home/syed-abdullah/Downloads/odoo/addons/bank_transaction/views/bank_transaction_views.xml -->
+
+<odoo>
+    <!-- Form View -->
+    <record id="view_bank_transaction_form" model="ir.ui.view">
+        <field name="name">bank.transaction.form</field>
+        <field name="model">bank.transaction</field>
+        <field name="arch" type="xml">
+            <form string="Bank Transaction">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="amount"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_bank_transaction_tree" model="ir.ui.view">
+        <field name="name">bank.transaction.tree</field>
+        <field name="model">bank.transaction</field>
+        <field name="arch" type="xml">
+            <tree string="Bank Transaction">
+                <field name="name"/>
+                <field name="amount"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_bank_transaction" model="ir.actions.act_window">
+        <field name="name">Bank Transactions</field>
+        <field name="res_model">bank.transaction</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_bank_transaction_root" name="Bank Transactions" sequence="10"/>
+    <menuitem id="menu_bank_transaction" name="Transactions" parent="menu_bank_transaction_root" action="action_bank_transaction" sequence="10"/>
+</odoo>
